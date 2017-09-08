@@ -1,0 +1,41 @@
+table {
+    border-collapse: collapse;
+    width: 30%;
+}
+
+th, td {
+    text-align: center;
+    padding: 8px;
+    font-size: 17px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2;
+    text-align: center;
+
+}
+
+th {
+    text-align: center;
+    background-color: #4CAF50;
+    color: white;
+}
+
+.table-two{
+    margin-left:300px;
+
+    margin-top: 10px;
+}
+
+.accountDetail{
+    font-size: 20px;
+    margin-left:300px;
+    margin-top: 120px;
+    font-family: "Trebuchet MS", Verdana, Geneva, Arial, Helvetica, sans-serif;
+    color: black;
+}
+.newAccount{
+    margin-top: 50px;
+    margin-left: 520px;
+    color: #16181b;
+}
+

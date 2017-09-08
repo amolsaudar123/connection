@@ -1,0 +1,27 @@
+
+*[role="form"] {
+    max-width: 600px;
+    padding: 15px;
+    margin: 0 auto;
+
+    border-radius: 0.2em;
+    margin-top: 100px;
+    
+   margin-bottom: 0px;
+}
+
+*[role="form"] h4{
+    margin-left: 11em;
+   
+}
+
+.form-horizontal {
+    width: 1000px;
+    height: 450px;
+    padding: 15px;
+    margin-top: 10px;
+    background-color: lightgray ;
+    box-shadow: 1px 1px black;
+
+}
+
