@@ -4,8 +4,7 @@ class ReminderController {
 
     def index() {
         def reminder=Reminder.list()
-        [reminder: reminder]
-
+       [reminder: reminder]
     }
 
     def save(){

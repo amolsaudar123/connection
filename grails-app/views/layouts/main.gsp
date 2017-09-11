@@ -40,9 +40,6 @@
 
                 var profile = googleUser.getBasicProfile();
 
-                //var fullName=profile.getName();
-                //var email=profile.getEmail();
-                //$("#fullName").val(profile.getEmail());
                 $("#email").val(profile.getEmail());
 
                 //$( "#onLogin" ).submit();

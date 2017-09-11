@@ -11,7 +11,7 @@
   }
 .navbar{
     top: 100px;
-
+    bottom: 0;
 
 }
  @media (min-width: 765px) {
@@ -29,6 +29,7 @@
 
     nav.sidebar.navbar.sidebar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand {
       margin-left: 0px;
+
      
     }
 
@@ -55,6 +56,8 @@
     nav.sidebar .navbar-collapse, nav.sidebar .container-fluid{
       padding: 0 0px 0 0px;
       height: 670px;
+
+        /*bottom: 0;*/
      
     }
 
@@ -62,7 +65,7 @@
 
     nav.sidebar{
       width: 200px;
-      height: 100%;
+      /*height: 100%;*/
       margin-left: -160px;
       float: left;
       margin-bottom: 0px;

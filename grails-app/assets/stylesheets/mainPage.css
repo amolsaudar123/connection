@@ -55,14 +55,11 @@
     float: right;
     display: block;
     color: black ;
-   
     padding: 17px 20px;
     text-decoration: none;
     font-size: 17px;
     margin-right: 100px;
     margin-left: 1px;
-    
-    
     padding-top: 0px;
 }
 
@@ -71,10 +68,30 @@
         margin-left: 450px;
         font-size: 28px;
         font-family:'Cherry Swash';
-      color: teal;
-     
- height: 20px;
-    width: 25%;
+        color: teal;
+        height: 20px;
+        width: 25%;
 
   
 }
+
+#footer {
+    bottom: 0;
+    width: 100%;
+    position: absolute;
+
+    background: url(top_header_back.png) repeat-x left top;
+    color:silver;
+    height: 30px;
+    min-width: 950px;
+    padding: 7px 0 13px;
+
+}
+.footer-block {
+   margin-bottom: 0;
+    text-align: center;
+    font-family: "Trebuchet MS", Verdana, Geneva, Arial, Helvetica, sans-serif;
+    font-size: 16px;
+
+}
+

@@ -108,6 +108,16 @@
 
     </g:form>
 
+    <div id="footer">
+        <div class="container">
+            <p class="footer-block"> &copy; 2017 Personal Expense Analyzer
+
+            &nbsp;&nbsp;&nbsp;&nbsp;
+
+            Design by Amol <a HREF="www.sptr.co"> (SyS +)</a></p>
+        </div>
+    </div>
+
 </div>
 </body>
 </html>

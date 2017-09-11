@@ -9,13 +9,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    %{--<meta name="layout" content="dashboard"/>--}%
     <asset:stylesheet src="acc.css"/>
     <title>PEA:Account</title>
     <link rel="stylesheet" href="${resource(dir: 'stylesheets', file: 'mainPage.css')}" type="text/css">
     <link rel="stylesheet" href="${resource(dir: 'stylesheets', file: 'account.css')}" type="text/css">
     <link rel="stylesheet" href="${resource(dir: 'stylesheets', file: 'verticalMenu.css')}" type="text/css">
-    
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -98,19 +96,16 @@
 
 
 <div class="newAccount">To Add new account click the button:-
-    %{--<a  href="${createLink(uri: '/account/static1')}">--}%
-    <button  type="button" id="show" class="btn-md btn-info "> Add Account</button>
+     <button  type="button" id="show" class="btn-md btn-info "> Add Account</button>
     <button id="hide">Hide</button>
    </div>
 
     <g:form class="form-horizontal" id="form" role="form" action="save">
-        %{--<g:form class="form-horizontal" id="form" role="form"url="[action:'addAccount',controller:'account']">--}%
         <h4>Add Account</h4>
 
         <label class="col-sm-3 control-label">Account Name</label>
         <div class="col-sm-9">
-            %{--<input type="text" id="bankName" placeholder="Account Name" class="form-control"   autofocus>--}%
-            <g:textField name="bankName" value="${bankName}"  id="bankName" placeholder="Account Name" class="form-control" list="account"/>
+             <g:textField name="bankName" value="${bankName}"  id="bankName" placeholder="Account Name" class="form-control" list="account"/>
             <datalist id="account">
             <option value="Cash">
                 <option value="SBI">
@@ -141,7 +136,6 @@
 
         <label class="col-sm-3 control-label">Balance</label>
         <div class="col-sm-9">
-            %{--<input type="bal" id="email" placeholder="balance" class="form-control">--}%
             <g:textField name="initialBalance" value="${initialBalance}"  id="initialBalance" placeholder="balance" class="form-control"/>
             <span class="help-block">initialBalance</span>
         </div>
@@ -149,7 +143,6 @@
 
         <label class="col-sm-3 control-label">Currency</label>
         <div class="col-sm-9">
-            %{--<select id="currency" class="form-control">--}%
                 <g:select name="currency" value="${currency}" from="${['INR','Dollar']}" class="form-control"/>
                 <span class="help-block">currency</span>
         </div>
@@ -163,6 +156,17 @@
 
 
     </g:form>
+</div>
+
+<!--[ footer ] -->
+<div id="footer">
+    <div class="container">
+        <p class="footer-block"> &copy; 2017 Personal Expense Analyzer
+
+        &nbsp;&nbsp;&nbsp;&nbsp;
+
+        Design by Amol <a HREF="www.sptr.co"> (SyS +)</a></p>
+    </div>
 </div>
 </body>
 </html>

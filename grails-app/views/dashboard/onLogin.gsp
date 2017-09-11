@@ -31,7 +31,7 @@
             <div class="projectTitle">Personal Expense Analyzer</div>
             <div class="navbar1">
                 <g:link action="logout" controller="login">Logout</g:link>
-                <a href="#profile">Welcome ${session.user}  |</a>
+                <a href="#">Welcome ${session.user}  |</a>
 
             </div>
         </div>
@@ -75,9 +75,7 @@
             <tr>
                 <td>${spendings.tag}</td>
                 <td>${spendings.amount}</td>
-
-                %{--<td><g:link action="delete"  controller="dashboard" id="${dashboards.id}">Delete</g:link></td>--}%
-            </tr>
+               </tr>
         </g:each>
         </tbody>
     </table>
@@ -108,36 +106,24 @@
 
 </div>
 
+<!--[ footer ] -->
+<div id="footer">
+    <div class="container">
+        <p class="footer-block"> &copy; 2017 Personal Expense Analyzer
 
+        &nbsp;&nbsp;&nbsp;&nbsp;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        Design by Amol <a HREF="www.sptr.co"> (SyS +)</a></p>
+    </div>
+</div>
 %{--On Load Operation--}%
 <div class="maintext">
 
     <div class="jquery-script-ads">
         <script type="text/javascript">
-            <!--
+
             google_ad_client="ca-pub-2783044520727903";
-            /* jQuery_demo */
+
             google_ad_slot = "2780937993";
             google_ad_width = 728;
             google_ad_height = 90;

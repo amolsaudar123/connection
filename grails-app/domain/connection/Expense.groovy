@@ -7,7 +7,7 @@ class Expense {
     Date date
     String tag
     String userName
-//    static belongsTo = [account:Account]
+
 
 
     static constraints = {

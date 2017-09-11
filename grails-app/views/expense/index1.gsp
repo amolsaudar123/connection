@@ -9,8 +9,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    %{--<meta name="layout" content="dashboard"/>--}%
-    <title>PEA:Expense</title>
+   <title>PEA:Expense</title>
     <asset:stylesheet src="acc.css"/>
     <link rel="stylesheet" href="${resource(dir: 'stylesheets', file: 'mainPage.css')}" type="text/css">
     <link rel="stylesheet" href="${resource(dir: 'stylesheets', file: 'account.css')}" type="text/css">
@@ -169,6 +168,18 @@
 
 
     </g:form>
+
+<!--[ footer ] -->
+    <div id="footer">
+        <div class="container">
+            <p class="footer-block"> &copy; 2017 Personal Expense Analyzer
+
+            &nbsp;&nbsp;&nbsp;&nbsp;
+
+            Design by Amol <a HREF="www.sptr.co"> (SyS +)</a></p>
+        </div>
+    </div>
 </div>
+
 </body>
 </html>
