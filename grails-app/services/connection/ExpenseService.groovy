@@ -6,7 +6,12 @@ import grails.transaction.Transactional
 class ExpenseService {
 
 
-    List<String> getBankName() {
-       Account.findAll().collect {it.bankName}
+    List<String> getBankName(String name) {
+
+       Account.findAllByUserNameLike(name).collect { it.bankName }
     }
-}
+
+    def getByUserName(String nam){
+        Expense.findAllByUserNameLike(nam).collect{it}
+    }
+    }

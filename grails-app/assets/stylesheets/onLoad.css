@@ -10,20 +10,22 @@
     position:absolute;
     left:0;
     top:0;
-    width:440px;
-    height:200px;
+    width:320px;
+    height:400px;
     display:none;
     z-index:9999;
     padding:20px;
     border-radius: 15px;
     text-align: center;
-
+    margin-top: -10px;
+    margin-left: 300px;
 }
 #boxes #dialog {
-    width:450px;
+    width:320px;
     height:auto;
     padding:10px;
-    background-color:gainsboro;
+    background-color:lavender;
+
     font-family: 'Segoe UI Light', sans-serif;
     font-size: 15pt;
 
@@ -42,10 +44,14 @@
 #popupfoot{
     font-family: "Segoe UI", sans-serif;
     font-size: 16pt;
-    padding: 10px 20px;
+    /*padding: 10px 20px;*/
+    margin-left: 10px;
 }
 #popupfoot a{
     text-decoration: none;
+}
+.agree{
+    margin-left: -50px;
 }
 .agree:hover{
     background-color: #D1D1D1;
@@ -59,5 +65,5 @@
     color: red;
 }
 .closeagree{
-    margin-left: 0px;
+    margin-left: 50px;
 }

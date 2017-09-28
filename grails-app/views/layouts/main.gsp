@@ -28,7 +28,7 @@
         <br>Login using Gmail
         <br>
 
-        <button class="loginBtn loginBtn--google g-signin2" data-onsuccess="onSignIn">
+        <button class="loginBtn loginBtn--google g-signin2" data-onsuccess="onSignIn" id="gmailButton">
             Login with Google
         </button>
 
@@ -46,10 +46,9 @@
                 $.ajax({
                     url:  "/Connection/api/loginsuccess",
                     type: 'post',
-                    data: {fullName: profile.getName()},
+                    data: {fullName: profile.getName(), profilePhoto:profile.getImageUrl(), email:profile.getEmail()},
                     success: function (data) {
-                        $("#div1").html(data);
-                        // alert("success");
+                         // alert("success");
                         window.location="/Connection/api/onLogin"
                     },
                     error: function () {

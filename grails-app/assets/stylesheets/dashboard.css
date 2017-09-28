@@ -1,30 +1,48 @@
+
+.table-two{
+    margin-left:300px;
+    margin-top: 10px;
+}
+
 table {
     border-collapse: collapse;
-    width: 30%;
+    width: 60%;
+    border: inset thin;
+    height: 150px;
+}
+.heading1{
+    text-align: center;
+    color: black;
+    font-family: "Trebuchet MS", Verdana, Geneva, Arial, Helvetica, sans-serif;
+    background-color:#4CAF50;
+  }
+.heading2{
+    text-align: center;
+    color: black;
+    font-family: "Trebuchet MS", Verdana, Geneva, Arial, Helvetica, sans-serif;
+    background-color:lightgrey;
 }
 
 th, td {
     text-align: center;
     padding: 8px;
     font-size: 17px;
+
 }
 
-tr:nth-child(even){background-color: #f2f2f2;
+tr:nth-child(even){
+    background-color: #f2f2f2;
     text-align: center;
 
 }
 
 th {
-    text-align: center;
-    background-color: #4CAF50;
+    background-color: darkslategray;
     color: white;
+
 }
 
-.table-two{
-    margin-left:300px;
 
-    margin-top: 10px;
-}
 
 .accountDetail{
     font-size: 20px;
@@ -43,4 +61,11 @@ th {
    bottom: -50px;
 
 }
+.dashboardFooter{
+    margin-bottom: -10%;
+}
+#verticalMenu{
+    height: 640px;
+}
+
 

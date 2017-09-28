@@ -76,7 +76,19 @@
 }
 
 #footer {
-    bottom: 0;
+    bottom: -50px;
+    width: 100%;
+    position: absolute;
+
+    background: url(top_header_back.png) repeat-x left top;
+    color:silver;
+    height: 30px;
+    min-width: 950px;
+    padding: 7px 0 13px;
+
+}
+#expensefooter{
+    bottom: -300px;
     width: 100%;
     position: absolute;
 

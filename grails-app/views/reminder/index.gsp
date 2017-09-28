@@ -29,14 +29,14 @@
             <asset:image class="logo" src="personalLogo.PNG"></asset:image>
             <div class="projectTitle">Personal Expense Analyzer</div>
             <div class="navbar1">
-                <g:link action="logout" controller="login">Logout</g:link>
+
                 <a href="#">Welcome ${session.user}  |</a>
             </div>
         </div>
     </div>
     <!--LeftSide Menu Starts-->
     <nav class="navbar navbar-default sidebar" role="navigation">
-        <div class="container-fluid">
+        <div class="container-fluid" id="reminderContainer">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
@@ -47,31 +47,33 @@
             </div>
             <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><g:link action="onLogin" controller="dashboard"> Dashboard<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home "></span></g:link></li>
-                    <li ><g:link action="index" controller="account">Account<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-th-list"></span></g:link></li>
-                    <li><g:link action="index1" controller="expense"> Expense<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-th-list"></span></g:link></li>
-                    <li  class="active" ><g:link controller="reminder" action="index">Reminder<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></g:link></li>
-                   </ul>
+                    <li style="height: 70px; font-size: 18px"><g:link action="onLogin" controller="dashboard"> Dashboard<span style="font-size:19px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home "></span></g:link></li>
+                    <li style="height: 70px; font-size: 18px"><g:link action="index" controller="account">Account<span style="font-size:19px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-th-list"></span></g:link></li>
+                    <li style="height: 70px; font-size: 18px"><g:link action="index1" controller="expense"> Expense<span style="font-size:19px; " class="pull-right hidden-xs showopacity glyphicon glyphicon-paperclip"></span></g:link></li>
+                    <li  class="active" style="height: 70px; font-size: 18px; "><g:link controller="reminder" action="index">Reminder<span style="font-size:19px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-dashboard"></span></g:link></li>
+                    <li  style="height: 70px; font-size: 18px; "><g:link controller="dashboard" action="profile">Profile<span style="font-size:19px; " class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></g:link></li>
+
+                </ul>
             </div>
         </div>
     </nav>
     <!--LeftSide Menu End-->
-    <div class="accountDetail">Reminder</div>
+    <div class="reminderDetail">Reminder</div>
     <div class="subTitle"><b>Old Reminders:-</b></div>
-    <table class="table-two" border="2">
+    <table class="table-two" border="1" id="reminderTable">
         <thead>
-        <tr>
-            <th>Title</th>
-            <th>Description</th>
+        <tr style="height: 40px;">
+            <th class="heading2">Title</th>
+            <th class="heading2">Description</th>
 
-            <th>Delete</th>
+            <th class="heading2">Delete</th>
            </tr>
         </thead>
         <tbody>
 
         <g:each in="${reminder}" status="i" var="reminders">
-            <tr>
-                <td>${reminders.title}</td>
+            <tr style="height: 40px;">
+                <td >${reminders.title}</td>
                 <td>${reminders.description}</td>
 
                 <td><g:link action="delete"  controller="reminder" id="${reminders.id}">Delete</g:link></td>
@@ -79,9 +81,25 @@
         </g:each>
         </tbody>
     </table>
+    <script>
+        $(document).ready(function() {
 
-    <div class="subTitle2"><b>Add New Reminder</b></div>
-    <g:form class="form-horizontal" id="form" role="form" action="save">
+            $("form").hide();
+            $("#show").show();
+
+            $('#show').click(function() {
+                $("form").slideToggle();
+            });
+
+        });
+    </script>
+
+    <div class="newReminder">To Add new reminder click the button:-
+        <button  type="button" id="show" class="btn-md btn-info "> Add Reminder</button>
+
+    </div>
+
+    <g:form class="form-horizontal" id="form" role="form" action="save" style="display: none">
         <h4>Add Reminder</h4>
 
         <label class="col-sm-3 control-label">Title</label>
@@ -98,7 +116,9 @@
 
             <span class="help-block">description</span>
         </div>
-
+        <div>
+            <g:hiddenField name="userName" value="${session.user}"  class="form-control"/>
+        </div>
 
         <div class="col-sm-9 col-sm-offset-3">
 
@@ -108,7 +128,7 @@
 
     </g:form>
 
-    <div id="footer">
+    <div id="reminderFooter">
         <div class="container">
             <p class="footer-block"> &copy; 2017 Personal Expense Analyzer
 

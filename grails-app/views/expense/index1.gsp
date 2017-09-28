@@ -29,7 +29,7 @@
             <asset:image class="logo" src="personalLogo.PNG"></asset:image>
             <div class="projectTitle">Personal Expense Analyzer</div>
             <div class="navbar1">
-                <g:link action="logout" controller="login">Logout</g:link>
+
                 <a href="#profile">Welcome ${session.user}  |</a>
 
             </div>
@@ -37,7 +37,7 @@
     </div>
     <!--LeftSide Menu Starts-->
     <nav class="navbar navbar-default sidebar" role="navigation">
-        <div class="container-fluid">
+        <div class="container-fluid" id="expenseFluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
@@ -48,64 +48,106 @@
             </div>
             <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><g:link action="onLogin" controller="dashboard"> Dashboard<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home "></span></g:link></li>
-                    <li ><g:link action="index" controller="account" >Account<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-th-list"></span></g:link></li>
-                    <li class="active" ><g:link action="index1" controller="expense">Expense<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-th-list"></span></g:link></li>
-                    <li ><g:link action="index" controller="reminder">Reminder<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></g:link></li>
-                      </ul>
+                    <li style="height: 70px; font-size: 18px"><g:link action="onLogin" controller="dashboard"> Dashboard<span style="font-size:19px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home "></span></g:link></li>
+                    <li style="height: 70px; font-size: 18px"><g:link action="index" controller="account" >Account<span style="font-size:19px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-th-list"></span></g:link></li>
+                    <li class="active" style="height: 70px; font-size: 18px"><g:link action="index1" controller="expense">Expense<span style="font-size:19px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-paperclip"></span></g:link></li>
+                    <li style="height: 70px; font-size: 18px"><g:link action="index" controller="reminder">Reminder<span style="font-size:19px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-dashboard"></span></g:link></li>
+                    <li  style="height: 70px; font-size: 18px; "><g:link controller="dashboard" action="profile">Profile<span style="font-size:19px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></g:link></li>
+
+                </ul>
             </div>
         </div>
     </nav>
     <!--LeftSide Menu End-->
-    <div class="accountDetail">Previous Expenses</div>
 
-    <table class="table-two" border="3">
+    <div class="expense">Previous Expenses</div>
+
+    <table class="table-five" border="2">
         <thead>
         <tr>
-            <th>Payee</th>
-            <th>Amount</th>
-            <th>Account Paid From</th>
-            <th>Date</th>
-            <th>Tag</th>
-            <th>Delete</th>
+            <th class="heading1">Payee</th>
+            <th class="heading1">Amount</th>
+            <th class="heading1">Account Paid From</th>
+            <th class="heading1">Date</th>
+            <th class="heading1">Tag</th>
+            <th class="heading1">Delete Expense</th>
+            <th class="heading1">Edit Expense</th>
         </tr>
         </thead>
         <tbody>
 
-        <g:each in="${expense}" status="i" var="expenses">
-            <tr>
-                <td>${expenses.payee}</td>
-                <td>${expenses.amount}</td>
-                <td>${expenses.account.bankName}</td>
-                <td>${expenses.date}</td>
-                <td>${expenses.tag}</td>
-                <td><g:link action="delete"  controller="expense" id="${expenses.id}">Delete</g:link></td>
+        <g:each in="${expenses}" status="i" var="expense">
+            <tr class="expenseTable">
+                <td>${expense.payee}</td>
+                <td>${expense.amount}</td>
+                <td>${expense.account.bankName}</td>
+                <td>${expense.date}</td>
+                <td>${expense.tag}</td>
+                <td><g:link action="delete"  controller="expense" id="${expense.id}">Delete</g:link></td>
+                <td><g:link action="edit"  controller="expense" id="${expense.id}">Edit</g:link></td>
+            </tr>
+        </g:each>
+        </tbody>
+    </table>
+
+    <div class="income">Income</div>
+
+    <table class="table-transaction" border="2">
+        <thead>
+        <tr>
+            <th class="heading1">Payer</th>
+            <th class="heading1">Amount</th>
+            <th class="heading1">Account Received in</th>
+            <th class="heading1">Date</th>
+            <th class="heading1">Tag</th>
+            <th class="heading1">Delete Income</th>
+            <th class="heading1">Edit Income</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <g:each in="${incomes}" status="i" var="income">
+            <tr class="expenseTable">
+                <td>${income.payer}</td>
+                <td>${income.amount}</td>
+                <td>${income.account.bankName}</td>
+                <td>${income.date}</td>
+                <td>${income.tag}</td>
+                <td><g:link action="delete"  controller="expense" id="${income.id}">Delete</g:link></td>
+                <td><g:link action="editTransaction"  controller="expense" id="${income.id}">Edit</g:link></td>
             </tr>
         </g:each>
         </tbody>
     </table>
     <script>
-        $(document).ready(function(){
-            $("#hide").click(function(){
-                $("form").hide();
-            });
-            $("#show").click(function(){
-                $("form").show();
+        $(document).ready(function() {
 
+            $("form").hide();
+            $("#show").show();
+
+            $('#show').click(function() {
+                $("form").slideToggle();
             });
+
         });
     </script>
 
 
-    <div class="newAccount">To Add new expense click the button:-
+    <div class="newAccount">To Add new transaction click the button:-
 
-        <button  type="button" id="show" class="btn-md btn-info "> Add Expense</button>
-        <button id="hide">Hide</button>
+        <button  type="button" id="show" class="btn-md btn-info "> Add Transaction</button>
+
     </div>
 
-    <g:form class="form-horizontal" id="form" role="form" action="save">
-        <h4>Add Expense</h4>
+    <g:form class="form-horizontal" id="form" role="form" action="save" style="display: none; height: 500px" >
+        <h4>Add Transaction</h4>
 
+        <g:radioGroup name="transactionType"
+                      labels="['income','expense']"
+                      values="['income','expense']"
+                      value="'expense'">
+            <p class="displaytablecell">${it.label} ${it.radio}</p>
+        </g:radioGroup>
         <label class="col-sm-3 control-label">Payee</label>
         <div class="col-sm-9">
             <g:textField name="payee" value="${payee}"  id="payee" placeholder="Payment Company.." class="form-control" list="company"/>
@@ -158,7 +200,7 @@
                 <option value="Help">
 
             </datalist>
-            <span class="help-block">date</span>
+            <span class="help-block">tags</span>
         </div>
 
         <div class="col-sm-9 col-sm-offset-3">
@@ -170,7 +212,7 @@
     </g:form>
 
 <!--[ footer ] -->
-    <div id="footer">
+    <div id="expensefooter">
         <div class="container">
             <p class="footer-block"> &copy; 2017 Personal Expense Analyzer
 

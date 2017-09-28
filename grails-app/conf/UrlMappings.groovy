@@ -10,7 +10,7 @@ class UrlMappings {
         "/"(view: "/index")
         "500"(view: '/error')
         "/api/loginsuccess"(controller: "login", action: "loginSuccess")
-
+        "/api/profile"(controller: "login", action: "profile")
         "/api/onLogin"(controller: "dashboard", action: "onLogin")
 
         "/api/index"(controller: "account", action: "index")

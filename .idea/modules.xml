@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/connection.iml" filepath="$PROJECT_DIR$/connection.iml" />
-      <module fileurl="file://$PROJECT_DIR$/connection-grailsPlugins.iml" filepath="$PROJECT_DIR$/connection-grailsPlugins.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PersonalExpenseAnalyzer.iml" filepath="$PROJECT_DIR$/PersonalExpenseAnalyzer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PersonalExpenseAnalyzer-grailsPlugins.iml" filepath="$PROJECT_DIR$/PersonalExpenseAnalyzer-grailsPlugins.iml" />
     </modules>
   </component>
 </project>

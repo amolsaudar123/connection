@@ -30,15 +30,16 @@
             <asset:image class="logo" src="personalLogo.PNG"></asset:image>
             <div class="projectTitle">Personal Expense Analyzer</div>
             <div class="navbar1">
-                <g:link action="logout" controller="login">Logout</g:link>
-                <a href="#">Welcome ${session.user}  |</a>
+
+                <g:link action="profile" controller="dashboard">Welcome ${session.user}  |</g:link>
+
 
             </div>
         </div>
     </div>
     <!--LeftSide Menu Starts-->
     <nav class="navbar navbar-default sidebar" role="navigation">
-        <div class="container-fluid">
+        <div class="container-fluid" id="verticalMenu">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
@@ -49,10 +50,11 @@
             </div>
             <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Dashboard<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home "></span></a></li>
-                    <li ><g:link controller="account" action="index" >Account<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-th-list"></span></g:link></li>
-                    <li ><g:link controller="expense" action="index1">Expense<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-th-list"></span></g:link> </li>
-                    <li ><g:link action="index" controller="reminder">Reminder<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></g:link></li>
+                    <li class="active" style="height: 70px; font-size: 18px"><g:link controller="dashboard" action="onLogin" > Dashboard<span style="font-size:19px;"  class="pull-right hidden-xs showopacity glyphicon glyphicon-home "></span></g:link></li>
+                    <li style="height: 70px; font-size: 18px"><g:link controller="account" action="index" >Account<span style="font-size:19px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-th-list"></span></g:link></li>
+                    <li style="height: 70px; font-size: 18px"><g:link controller="expense" action="index1" >Expense<span style="font-size:19px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-paperclip"></span></g:link> </li>
+                    <li style="height: 70px; font-size: 18px"><g:link action="index" controller="reminder" >Reminder<span style="font-size:19px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-dashboard"></span></g:link></li>
+                    <li  style="height: 70px; font-size: 18px; "><g:link controller="dashboard" action="profile">Profile<span style="font-size:19px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></g:link></li>
 
                 </ul>
             </div>
@@ -60,13 +62,12 @@
     </nav>
     <!--LeftSide Menu End-->
     <div class="accountDetail">Hi, ${session.user} Check Your Spending  </div>
-    <table class="table-two" border="3">
+    <table class="table-two" border="1" id="dashboardTable1">
         <thead>
 
         <tr>
-            <th>Spent On</th>
-            <th>Amount</th>
-
+            <th class="heading1" style="height: 40px;"> Spent On</th>
+            <th class="heading1" style="height: 30px;">Amount</th>
         </tr>
         </thead>
         <tbody>
@@ -75,19 +76,20 @@
             <tr>
                 <td>${spendings.tag}</td>
                 <td>${spendings.amount}</td>
+
                </tr>
         </g:each>
         </tbody>
     </table>
 
         <div class="accountDetail2"><b> Account Balance </b>  </div>
-    <table class="table-three" border="3">
+    <table class="table-three" border="2px">
         <thead>
 
         <tr>
-            <th>Bank Name</th>
-            <th>Account Number</th>
-            <th>Current Balance</th>
+            <th class="heading2" style="height: 40px;"> Bank Name</th>
+            <th class="heading2">Account Number</th>
+            <th class="heading2">Current Balance</th>
         </tr>
         </thead>
         <tbody>
@@ -107,13 +109,13 @@
 </div>
 
 <!--[ footer ] -->
-<div id="footer">
+<div id="footer" class="dashboardFooter">
     <div class="container">
         <p class="footer-block"> &copy; 2017 Personal Expense Analyzer
 
         &nbsp;&nbsp;&nbsp;&nbsp;
 
-        Design by Amol <a HREF="www.sptr.co"> (SyS +)</a></p>
+        Design by Amol <a href="www.sptr.co"> (SyS +)</a></p>
     </div>
 </div>
 %{--On Load Operation--}%
@@ -138,7 +140,9 @@
         <div id="lorem">
             <p> Check Your Latest Reminders.</p>
         </div>
-        <div id="popupfoot"> <a href="#" class="closeagree">No</a> | <br><a href="http://localhost:8080/Connection/reminder/index" class="agree" style="color:red;">Yes</a></div>
+        <div id="popupfoot"> <a href="http://localhost:8080/Connection/reminder/index" class="agree" style="color:red;">Yes</a>
+            <a href="#" class="closeagree">No</a>
+           </div>
     </div>
     <div style="width: 1478px; font-size: 32pt; color:white; height: 602px; display: none; opacity: 0.3;" id="mask"></div>
 </div>

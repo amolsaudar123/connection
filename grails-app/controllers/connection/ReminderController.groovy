@@ -3,7 +3,7 @@ package connection
 class ReminderController {
 
     def index() {
-        def reminder=Reminder.list()
+        def reminder=Reminder.findAllByUserName(session.user).collect{it}
        [reminder: reminder]
     }
 

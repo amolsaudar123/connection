@@ -6,13 +6,17 @@ class LoginController {
 
     def loginSuccess(){
         session.user=params.fullName
+        session.photo=params.profilePhoto
+        session.email=params.email
         response.setContentType('application/json')
-        def logUser=params.fullName
+
+
         try {
 
             println params
             render("${['status': "OK" ] as JSON}")
-            def userName=params.fullName
+//            def userName=params.fullName
+//            def profileUrl=params.profilePhoto
           }
         catch (RuntimeException exception) {
             log.error "Error during operation " + exception.message,exception

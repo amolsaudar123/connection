@@ -28,7 +28,7 @@
             <asset:image class="logo" src="personalLogo.PNG"></asset:image>
             <div class="projectTitle">Personal Expense Analyzer</div>
             <div class="navbar1">
-                <g:link action="logout" controller="login">Logout</g:link>
+
                 <a href="#profile">Welcome ${session.user}  |</a>
 
             </div>
@@ -47,26 +47,29 @@
             </div>
             <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><g:link action="onLogin" controller="dashboard">Dashboard<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home "></span></g:link> </li>
-                    <li class="active" ><g:link action="index" controller="account">Account<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-th-list"></span></g:link></li>
-                    <li ><g:link action="index1" controller="expense">Expense<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-th-list"></span></g:link> </li>
-                    <li ><g:link action="index" controller="reminder">Reminder<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></g:link></li>
-                     </ul>
+                    <li style="height: 70px; font-size: 18px"><g:link action="onLogin" controller="dashboard">Dashboard<span style="font-size:19px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home "></span></g:link> </li>
+                    <li class="active" style="height: 70px; font-size: 18px"><g:link action="index" controller="account">Account<span style="font-size:19px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-th-list"></span></g:link></li>
+                    <li style="height: 70px; font-size: 18px"><g:link action="index1" controller="expense">Expense<span style="font-size:19px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-paperclip"></span></g:link> </li>
+                    <li style="height: 70px; font-size: 18px"><g:link action="index" controller="reminder">Reminder<span style="font-size:19px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-dashboard"></span></g:link></li>
+                    <li  style="height: 70px; font-size: 18px; "><g:link controller="dashboard" action="profile">Profile<span style="font-size:19px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></g:link></li>
+
+                </ul>
             </div>
         </div>
     </nav>
     <!--LeftSide Menu End-->
     <div class="accountDetail">Accounts</div>
 
-    <table class="table-two" border="3">
+    <table class="table-four" border="2">
         <thead>
-        <tr>
-            <th>BankName</th>
-            <th>AccountNumber</th>
-            <th>AccountType</th>
-            <th>InitialBalance</th>
-            <th>Currency</th>
-            <th>Delete</th>
+        <tr >
+            <th class="heading1">Bank Name</th>
+            %{--<th class="heading1">Account Number</th>--}%
+            <th class="heading1">Account Type</th>
+            <th class="heading1">Initial Balance</th>
+
+            <th class="heading1">Delete</th>
+            <th class="heading1">Edit Account</th>
         </tr>
         </thead>
         <tbody>
@@ -74,33 +77,36 @@
         <g:each in="${account}" status="i" var="accounts">
             <tr>
                 <td>${accounts.bankName}</td>
-                <td>${accounts.accountNumber}</td>
+                %{--<td>${accounts.accountNumber}</td>--}%
                 <td>${accounts.accountType}</td>
                 <td>${accounts.initialBalance}</td>
-                <td>${accounts.currency}</td>
+
                 <td><g:link action="delete"  controller="account" id="${accounts.id}">Delete</g:link></td>
+                <td><g:link action="edit"  controller="account" id="${accounts.id}">Edit</g:link></td>
             </tr>
         </g:each>
         </tbody>
     </table>
     <script>
-    $(document).ready(function(){
-    $("#hide").click(function(){
-    $("form").hide();
-    });
-    $("#show").click(function(){
-    $("form").show();
-    });
-    });
+        $(document).ready(function() {
+
+            $("form").hide();
+            $("#show").show();
+
+            $('#show').click(function() {
+                $("form").slideToggle();
+            });
+
+        });
 </script>
 
 
 <div class="newAccount">To Add new account click the button:-
      <button  type="button" id="show" class="btn-md btn-info "> Add Account</button>
-    <button id="hide">Hide</button>
+
    </div>
 
-    <g:form class="form-horizontal" id="form" role="form" action="save">
+    <g:form class="form-horizontal" id="form" role="form" action="save" style="display: none">
         <h4>Add Account</h4>
 
         <label class="col-sm-3 control-label">Account Name</label>
@@ -141,12 +147,7 @@
         </div>
 
 
-        <label class="col-sm-3 control-label">Currency</label>
-        <div class="col-sm-9">
-                <g:select name="currency" value="${currency}" from="${['INR','Dollar']}" class="form-control"/>
-                <span class="help-block">currency</span>
-        </div>
-            <div>
+                 <div>
                 <g:hiddenField name="userName" value="${session.user}"  class="form-control"/>
             </div>
         <div class="col-sm-9 col-sm-offset-3">
@@ -159,7 +160,7 @@
 </div>
 
 <!--[ footer ] -->
-<div id="footer">
+<div id="accountFooter">
     <div class="container">
         <p class="footer-block"> &copy; 2017 Personal Expense Analyzer
 
