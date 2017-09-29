@@ -1,5 +1,7 @@
 package connection
 
+import java.sql.Date
+
 class Expense {
     String payee
     Integer amount

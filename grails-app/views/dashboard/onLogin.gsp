@@ -6,6 +6,7 @@
 --%>
 
 <%@ page contentType="text/html;charset=UTF-8" %>
+
 <html>
 <head>
     <title>PEA:DashBoard</title>
@@ -21,6 +22,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Cherry Swash' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 </head>
 <body >
 <div class="mainContainer">
@@ -67,29 +69,49 @@
 
         <tr>
             <th class="heading1" style="height: 40px;"> Spent On</th>
-            <th class="heading1" style="height: 30px;">Amount</th>
+            <th class="heading1" style="height: 30px;">Amount<span style="color: black; margin-left: 7px; ">( <i class="fa fa-inr" > )</i></span></th>
         </tr>
         </thead>
         <tbody>
 
-        <g:each in="${spending}" status="i" var="spendings" controller="dashboard">
+        <g:each in="${expenses}" status="i" var="spend">
             <tr>
-                <td>${spendings.tag}</td>
-                <td>${spendings.amount}</td>
+                <td>${spend.tag}</td>
+                <td>${spend.amount}</td>
 
                </tr>
         </g:each>
         </tbody>
     </table>
+    <div class="analyzer"> Monthly Spending </div>
+    <table class="table-spending" border="1" id="dashboardTable3">
+        <thead>
 
+        <tr>
+            <th class="heading1" style="height: 40px;">Last Month Spending<span style="color: black; margin-left: 7px; ">( <i class="fa fa-inr" > )</i></span></th>
+            <th class="heading1" style="height: 30px;">Current Month Spending<span style="color: black; margin-left: 7px; ">( <i class="fa fa-inr" > )</i></span></th>
+        </tr>
+        </thead>
+              <tbody>
+              <tr>
+                  <td>${previousMonthSpending.toString()}</td>
+                    <td>${currentMonthSpening.toString()}</td>
+
+              </tr>
+
+        </tbody>
+
+    </table>
+%{----}%
+    <div class="status"> ${status} </div></i>
         <div class="accountDetail2"><b> Account Balance </b>  </div>
-    <table class="table-three" border="2px">
+    <table class="table-three" border="2px" style="width: 70%">
         <thead>
 
         <tr>
             <th class="heading2" style="height: 40px;"> Bank Name</th>
-            <th class="heading2">Account Number</th>
-            <th class="heading2">Current Balance</th>
+
+            <th class="heading2">Current Balance<span style="color: black; margin-left: 7px; ">( <i class="fa fa-inr" > )</i></span></th>
         </tr>
         </thead>
         <tbody>
@@ -97,7 +119,7 @@
         <g:each in="${accountSummaries}"  status="i" var="ac" controller="dashboard">
             <tr>
                 <td>${ac.account.bankName}</td>
-                <td>${ac.account.accountNumber}</td>
+
                 <td>${ac.balance}
                  </td>
             </tr>

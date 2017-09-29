@@ -88,7 +88,7 @@
             <g:textField name="amount" value="${editTransaction.amount}"  id="amount" placeholder="amount" class="form-control"/>
             <span class="help-block">amount</span>
         </div>
-        <label class="col-sm-3 control-label">AccountPaidFrom</label>
+        <label class="col-sm-3 control-label">AccountReceivedIn</label>
         <div class="col-sm-9">
             <g:select id="bankName" class="form-control" value="${editTransaction.account}" name="bankName" from="${bankNames}">
             </g:select>
@@ -99,7 +99,7 @@
         <div class="col-sm-9">
 
             <g:datePicker name="date" value="${editTransaction.date}"
-                          default="${new Date()}" relativeYears="[0..0]"/>
+                          default="${new Date()}" relativeYears="[0..0]" precision="day"/>
             <span class="help-block">date</span>
         </div>
         <div>

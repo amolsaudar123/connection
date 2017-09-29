@@ -1,5 +1,8 @@
 package connection
 
+import grails.validation.Validateable
+
+@Validateable
 class Account {
     String bankName
     String accountType

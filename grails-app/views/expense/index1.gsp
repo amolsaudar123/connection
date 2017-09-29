@@ -20,6 +20,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Cherry Swash' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 <div class="mainContainer">
@@ -66,7 +67,7 @@
         <thead>
         <tr>
             <th class="heading1">Payee</th>
-            <th class="heading1">Amount</th>
+            <th class="heading1">Amount<span style="color: white; margin-left: 7px; ">( <i class="fa fa-inr" > )</i></span></th>
             <th class="heading1">Account Paid From</th>
             <th class="heading1">Date</th>
             <th class="heading1">Tag</th>
@@ -81,7 +82,7 @@
                 <td>${expense.payee}</td>
                 <td>${expense.amount}</td>
                 <td>${expense.account.bankName}</td>
-                <td>${expense.date}</td>
+                <td><g:formatDate date="${expense.date}" format="dd/MM/yyyy"/> </td>
                 <td>${expense.tag}</td>
                 <td><g:link action="delete"  controller="expense" id="${expense.id}">Delete</g:link></td>
                 <td><g:link action="edit"  controller="expense" id="${expense.id}">Edit</g:link></td>
@@ -96,8 +97,8 @@
         <thead>
         <tr>
             <th class="heading1">Payer</th>
-            <th class="heading1">Amount</th>
-            <th class="heading1">Account Received in</th>
+            <th class="heading1">Amount <span style="color: white; margin-left: 7px; ">( <i class="fa fa-inr" > )</i></span></th>
+            <th class="heading1">Account Received In</th>
             <th class="heading1">Date</th>
             <th class="heading1">Tag</th>
             <th class="heading1">Delete Income</th>
@@ -111,7 +112,7 @@
                 <td>${income.payer}</td>
                 <td>${income.amount}</td>
                 <td>${income.account.bankName}</td>
-                <td>${income.date}</td>
+                <td><g:formatDate date="${income.date}" format="dd/MM/yyyy"/>  </td>
                 <td>${income.tag}</td>
                 <td><g:link action="delete"  controller="expense" id="${income.id}">Delete</g:link></td>
                 <td><g:link action="editTransaction"  controller="expense" id="${income.id}">Edit</g:link></td>
@@ -139,15 +140,21 @@
 
     </div>
 
-    <g:form class="form-horizontal" id="form" role="form" action="save" style="display: none; height: 500px" >
+    <g:form class="form-horizontal" id="form" role="form" action="save" style="display: none; height: 550px" >
         <h4>Add Transaction</h4>
 
-        <g:radioGroup name="transactionType"
-                      labels="['income','expense']"
+        <span class="transactionType" style="font-size: 19px; color: #1e7e34; font-family: 'Estrangelo Edessa'"><b>Select Transaction Type:</b>
+        <g:radioGroup name="transactionType" class="radio_button"
+                      labels="['Income','Expense']"
                       values="['income','expense']"
-                      value="'expense'">
-            <p class="displaytablecell">${it.label} ${it.radio}</p>
+                      value="'expense'" >
+            <ul style="background-color: #dddddd;"><li style="display: inline;">
+            <p class="displaytablecell" style="color: #062c33">${it.label} ${it.radio} </p>
+            </li>
+            </ul>
+
         </g:radioGroup>
+        </span>
         <label class="col-sm-3 control-label">Payee</label>
         <div class="col-sm-9">
             <g:textField name="payee" value="${payee}"  id="payee" placeholder="Payment Company.." class="form-control" list="company"/>
@@ -179,11 +186,10 @@
 
         <label class="col-sm-3 control-label">Date</label>
         <div class="col-sm-9">
-
-            <g:datePicker name="date" value="${date}"
-            default="${new Date()}" relativeYears="[0..0]"/>
+            <g:datePicker name="date" value="${date}" default="${new Date()}" relativeYears="[0..0]" precision="day" />
             <span class="help-block">date</span>
         </div>
+
     <div>
     <g:hiddenField name="userName" value="${session.user}"  class="form-control"/>
     </div>

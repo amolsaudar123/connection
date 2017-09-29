@@ -19,18 +19,16 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Cherry Swash' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 <div class="mainContainer">
     <div class="topHeader">
         <div class="logoHeader">
-
             <asset:image class="logo" src="personalLogo.PNG"></asset:image>
             <div class="projectTitle">Personal Expense Analyzer</div>
             <div class="navbar1">
-
                 <a href="#profile">Welcome ${session.user}  |</a>
-
             </div>
         </div>
     </div>
@@ -52,35 +50,30 @@
                     <li style="height: 70px; font-size: 18px"><g:link action="index1" controller="expense">Expense<span style="font-size:19px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-paperclip"></span></g:link> </li>
                     <li style="height: 70px; font-size: 18px"><g:link action="index" controller="reminder">Reminder<span style="font-size:19px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-dashboard"></span></g:link></li>
                     <li  style="height: 70px; font-size: 18px; "><g:link controller="dashboard" action="profile">Profile<span style="font-size:19px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></g:link></li>
-
                 </ul>
             </div>
         </div>
     </nav>
     <!--LeftSide Menu End-->
     <div class="accountDetail">Accounts</div>
-
     <table class="table-four" border="2">
         <thead>
         <tr >
             <th class="heading1">Bank Name</th>
             %{--<th class="heading1">Account Number</th>--}%
             <th class="heading1">Account Type</th>
-            <th class="heading1">Initial Balance</th>
-
+            <th class="heading1">Initial Balance<span style="color: white; margin-left: 7px; ">( <i class="fa fa-inr" > )</i></span></th>
             <th class="heading1">Delete</th>
             <th class="heading1">Edit Account</th>
         </tr>
         </thead>
         <tbody>
-
         <g:each in="${account}" status="i" var="accounts">
             <tr>
                 <td>${accounts.bankName}</td>
                 %{--<td>${accounts.accountNumber}</td>--}%
                 <td>${accounts.accountType}</td>
                 <td>${accounts.initialBalance}</td>
-
                 <td><g:link action="delete"  controller="account" id="${accounts.id}">Delete</g:link></td>
                 <td><g:link action="edit"  controller="account" id="${accounts.id}">Edit</g:link></td>
             </tr>
@@ -89,14 +82,11 @@
     </table>
     <script>
         $(document).ready(function() {
-
             $("form").hide();
             $("#show").show();
-
             $('#show').click(function() {
-                $("form").slideToggle();
+              $("form").slideToggle();
             });
-
         });
 </script>
 

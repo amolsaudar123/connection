@@ -7,16 +7,27 @@ class DashboardController {
     def dashboardService
 
     def onLogin() {
-       def spending = Expense.findAllByUserNameLike(session.user).collect{it}
 
-        def accountDetails=Account.findAllByUserNameLike(session.user).collect{it}
-        def newUserName=session.user
-        List<AccountSummary> accountSummaries = dashboardService.calculateBalance(newUserName)
-        render(view: 'onLogin', model: [spending: spending, accountDetails:accountDetails, accountSummaries:accountSummaries])
-    }
-    def profile(){
+        def newUserName = session.user
+        if (newUserName){
+            List<AccountSummary> accountSummaries = dashboardService.calculateBalance(newUserName)
+
+            def expenses = dashboardService.getExpeses(newUserName)
+            def previousMonthSpending=dashboardService.getMonthlySpending(newUserName)
+            def currentMonthSpening=dashboardService.getCurrentMonthSpending(newUserName)
+            def status= previousMonthSpending>currentMonthSpening ? "You Spend ${previousMonthSpending-currentMonthSpening} rupee less in this month" : previousMonthSpending<currentMonthSpening ? "In this Month You Spend ${currentMonthSpening-previousMonthSpending} INR more  " :"Same Spending"
+
+            render(view: 'onLogin', model: [expenses: expenses, accountSummaries: accountSummaries, previousMonthSpending:previousMonthSpending, currentMonthSpening:currentMonthSpening, status:status])
+        }else {
+            render(view: 'onLogin', model: [expenses: [], accountSummaries: []])
+        }
 
 
     }
+
+    def profile() {
+
+
     }
+}
 

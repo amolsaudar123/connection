@@ -8,13 +8,15 @@ class LoginController {
         session.user=params.fullName
         session.photo=params.profilePhoto
         session.email=params.email
+
         response.setContentType('application/json')
 
 
         try {
 
             println params
-            render("${['status': "OK" ] as JSON}")
+            render 200
+//            render(200,"${['status': "OK" ] as JSON}")
 //            def userName=params.fullName
 //            def profileUrl=params.profilePhoto
           }

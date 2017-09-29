@@ -19,17 +19,24 @@ th {
 
 .table-three{
     /*position: fixed;*/
-    margin-left: 300px;
+    margin-left: 250px;
     margin-top: 10px;
 }
 
 .accountDetail2{
     margin-left: 300px;
-    margin-top: 100px;
+    margin-top: 50px;
     font-size: 20px;
     font-family: "Trebuchet MS", Verdana, Geneva, Arial, Helvetica, sans-serif;
     color: #0c5460;
 
+}
+.status{
+    margin-top: 20px;
+    margin-left: 1000px;
+    font-size: 20px;
+    font-family: "Trebuchet MS", Verdana, Geneva, Arial, Helvetica, sans-serif;
+    color: #17a2b8;
 }
 
 .newAccount{
